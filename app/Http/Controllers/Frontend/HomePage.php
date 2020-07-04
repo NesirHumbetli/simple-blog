@@ -24,6 +24,7 @@ class HomePage extends Controller
             // return redirect()->to('offline')->send();
             return redirect()->to('offline')->send();
         }
+        view()->share('config',Config::find(1));
         view()->share('pages',Page::orderBy('order','ASC')->where('status',1)->get());
         view()->share('categories',Category::where('status',1)->inRandomOrder()->get());
     }
